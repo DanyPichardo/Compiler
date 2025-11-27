@@ -36,4 +36,4 @@ Esto generará el archivo lexer.exe
 
 En la consola ejecuter el siguiente comando:
 
-./lexer input.c
+./lexer.exe input.c
