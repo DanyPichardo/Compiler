@@ -1,35 +1,45 @@
 #include <stdlib.h>
 #define SCALE_FACTOR 2
+
 int globalA;
 int globalB;
-int addValues(int first, int second) {
+
+int addValues(int first, int second){
     int resultLocal;
     resultLocal = first + second;
     return resultLocal;
 }
-int processValue(int value) {
+
+int processValue (int value){
     int temporaryVal;
     temporaryVal = value * SCALE_FACTOR;
-    { /* nested block */
+    {  // Bloque Anidado
         int innerResult;
         innerResult = temporaryVal + 5;
-        print(innerResult);
+        printf(innerResult);
     }
+
     return temporaryVal;
 }
-int main() {
+
+int main(){
     int resultMain;
     int auxValue;
+
     globalA = 3;
     globalB = 4;
+
     resultMain = addValues(globalA, globalB);
-    print(resultMain);
+    printf(resultMain);
+
     auxValue = processValue(resultMain);
-    print(auxValue);
-    {
+    printf(auxValue);
+
+    { /* Bloque Anidado */
         int finalOutput;
         finalOutput = auxValue + resultMain;
-        print(finalOutput);
+        printf(finalOutput);
     }
+
     return 0;
 }

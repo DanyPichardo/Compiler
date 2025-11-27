@@ -1,12 +1,11 @@
-
 %{
 #include <stdio.h>
 #include <stdlib.h>
 
 // Declaramos las funciones externas
 extern int yylex();
-extern int yylineno; // Para saber el número de línea
-extern char *yytext; // Para saber el texto del error
+extern int yylineno; // Número de línea
+extern char *yytext; // Texto que ocasionó el error
 
 void yyerror(const char *s);
 %}
@@ -135,7 +134,7 @@ expression:
 
 %%
 
-/* --- CÓDIGO DE USUARIO --- */
+/* --- FEEDBACK PARA USUARIO --- */
 
 void yyerror(const char *s) {
     fprintf(stderr, "Error sintactico en la linea %d: %s. Token inesperado: '%s'\n", yylineno, s, yytext);
@@ -146,12 +145,11 @@ int main(int argc, char **argv) {
     if (argc > 1) {
         yyin = fopen(argv[1], "r");
         if (!yyin) {
-            perror("Error abriendo archivo");
+            perror("Error al abrir el archivo");
             return 1;
         }
     }
 
-    // Iniciar el análisis sintáctico
     if (yyparse() == 0) {
         printf("\n Analisis Sintactico Completado Exitosamente. No se encontraron errores.\n");
     }
