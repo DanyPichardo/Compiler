@@ -49,6 +49,7 @@
 "}"                 { printf("LLAVE_DER: %s\n", yytext); }
 ";"                 { printf("PUNTO_Y_COMA: %s\n", yytext); }
 ","                 { printf("COMA: %s\n", yytext); }
+"."                 { printf("PUNTO: %s\n", yytext); }
 "#"                 { printf("HASH: %s\n", yytext); }
 "<"                 { printf("MENOR_QUE: %s\n", yytext); }
 ">"                 { printf("MAYOR_QUE: %s\n", yytext); }
